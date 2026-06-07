@@ -1,0 +1,30 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# IDE files
+.vscode/
+.idea/
+
+# Runtime logs
+logs/*.csv
+reports/*.csv
+reports/*.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# CARLA package should never be committed
+CarlaUE4.exe
+Engine/
+PythonAPI/
+CARLA_*.zip
+AdditionalMaps_*.zip
