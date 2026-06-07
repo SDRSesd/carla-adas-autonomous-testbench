@@ -20,6 +20,8 @@ from utils_logger import (
     print_test_result
 )
 
+from video_recorder import CarlaVideoRecorder
+
 
 SCENARIO_NAME = "emergency_brake_test"
 
@@ -179,7 +181,9 @@ def main():
 
     ego_vehicle = None
     obstacle_vehicle = None
+    video_recorder = None
     logger = VehicleDataLogger(SCENARIO_NAME)
+    
 
     try:
         ego_bp = blueprint_library.filter("vehicle.tesla.model3")[0]
@@ -207,6 +211,14 @@ def main():
         obstacle_vehicle.set_simulate_physics(False)
 
         set_spectator_view(world, ego_vehicle)
+
+        video_recorder = CarlaVideoRecorder(
+            world=world,
+            blueprint_library=blueprint_library,
+            ego_vehicle=ego_vehicle,
+            scenario_name=SCENARIO_NAME
+        )
+        video_recorder.start()
 
         print("[INFO] Ego vehicle spawned on stable driving lane")
         print("[INFO] Stationary obstacle placed ahead on same lane")
@@ -293,6 +305,9 @@ def main():
 
     finally:
         print("[INFO] Cleaning up CARLA actors")
+
+        if video_recorder is not None:
+            video_recorder.stop()
 
         if ego_vehicle is not None:
             ego_vehicle.destroy()

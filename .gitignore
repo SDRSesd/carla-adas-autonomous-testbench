@@ -22,6 +22,10 @@ reports/*.txt
 .DS_Store
 Thumbs.db
 
+# Video frame cache
+videos/frames/*
+!videos/frames/.gitkeep
+
 # CARLA package should never be committed
 CarlaUE4.exe
 Engine/

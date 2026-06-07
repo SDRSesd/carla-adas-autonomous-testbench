@@ -50,15 +50,15 @@ This project was created to demonstrate hands-on experience in:
 
 ## Tools and Technologies
 
-| Area | Tools / Technologies |
-|---|---|
-| Simulator | CARLA 0.9.16 |
-| Programming | Python |
-| API | CARLA Python API |
-| Platform | Windows |
-| Execution | PowerShell |
-| Data Logging | CSV |
-| Version Control | Git and GitHub |
+| Area            | Tools / Technologies |
+|-----------------|----------------------|
+| Simulator       | CARLA 0.9.16         |
+| Programming     | Python               |
+| API             | CARLA Python API     |
+| Platform        | Windows              |
+| Execution       | PowerShell           |
+| Data Logging    | CSV                  |
+| Version Control | Git and GitHub       |
 
 ---
 
@@ -74,6 +74,7 @@ carla-adas-autonomous-testbench
 ├── src
 │   ├── main_autonomous_drive.py
 │   ├── utils_logger.py
+│   ├── video_recorder.py
 │   ├── emergency_brake_test.py
 │   ├── pedestrian_crossing_test.py
 │   └── wet_braking_test.py
@@ -82,10 +83,41 @@ carla-adas-autonomous-testbench
 │   └── .gitkeep
 │
 ├── reports
-│   └── .gitkeep
+│   ├── .gitkeep
+│   ├── validation_plan.md
+│   └── sample_test_summary.md
 │
 ├── screenshots
-│   └── .gitkeep
+│   ├── .gitkeep
+│   ├── baseline_autonomous_drive_console.png
+│   ├── pedestrian_crossing_validation_console.png
+│   ├── wet_braking_validation_console.png
+│   └── emergency_brake_test_passed.png
+│
+├── videos
+│   ├── .gitkeep
+│   ├── emergency_brake_test.mp4
+│   └── frames
+│       └── .gitkeep
 │
 └── docs
-    └── project_architecture.md
+    ├── project_architecture.md
+    ├── development_timeline.md
+    └── interview_notes.md
+```
+
+---
+
+## Scenario Video Evidence
+
+The emergency braking scenario includes ego-vehicle camera recording for visual validation evidence.
+
+| Scenario          | Evidence                          |
+| ----------------- | --------------------------------- |
+| Emergency Braking | `videos/emergency_brake_test.mp4` |
+
+The video is captured using a CARLA RGB camera sensor attached behind the ego vehicle. This provides a real-time view of the scenario execution and supports post-test validation review.
+
+The raw frame cache is stored under `videos/frames/` during execution and is excluded from Git tracking to avoid committing large temporary image files.
+
+
