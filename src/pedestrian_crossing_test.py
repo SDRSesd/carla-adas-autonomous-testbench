@@ -20,6 +20,8 @@ from utils_logger import (
     print_test_result
 )
 
+from video_recorder import CarlaVideoRecorder
+
 
 SCENARIO_NAME = "pedestrian_crossing_test"
 CARLA_HOST = "127.0.0.1"
@@ -51,6 +53,7 @@ def main():
 
     ego_vehicle = None
     pedestrian = None
+    video_recorder = None
     logger = VehicleDataLogger(SCENARIO_NAME)
 
     try:
@@ -69,6 +72,14 @@ def main():
 
         ego_vehicle = world.spawn_actor(ego_bp, ego_spawn)
         pedestrian = world.spawn_actor(walker_bp, pedestrian_transform)
+
+        video_recorder = CarlaVideoRecorder(
+            world=world,
+            blueprint_library=blueprint_library,
+            ego_vehicle=ego_vehicle,
+            scenario_name=SCENARIO_NAME
+        )
+        video_recorder.start()
 
         print("[INFO] Ego vehicle and pedestrian spawned")
         print(f"[INFO] Log file: {logger.log_file}")
@@ -136,6 +147,9 @@ def main():
 
     finally:
         print("[INFO] Cleaning up CARLA actors")
+
+        if video_recorder is not None:
+            video_recorder.stop()
 
         if ego_vehicle is not None:
             ego_vehicle.destroy()

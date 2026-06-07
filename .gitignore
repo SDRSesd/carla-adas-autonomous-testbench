@@ -26,6 +26,9 @@ Thumbs.db
 videos/frames/*
 !videos/frames/.gitkeep
 
+# Keep final portfolio videos only if file size is reasonable
+# *.mp4 can be committed only when below GitHub size limits
+
 # CARLA package should never be committed
 CarlaUE4.exe
 Engine/

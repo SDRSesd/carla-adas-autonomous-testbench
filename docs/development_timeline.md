@@ -47,9 +47,18 @@
 
 ---
 
-## Phase 6 - Planned Enhancements
+## Phase 6 - Visual Validation Evidence
 
-- Add camera sensor recording.
+- Added CARLA RGB camera sensor recording.
+- Attached scenario camera behind ego vehicle.
+- Generated MP4 video evidence for each validation scenario.
+- Excluded raw frame cache from Git tracking.
+- Updated README, validation plan and project architecture with video evidence workflow.
+
+---
+
+## Phase 7 - Planned Enhancements
+
 - Add LiDAR capture.
 - Add JSON scenario configuration.
 - Add automated HTML/PDF reports.

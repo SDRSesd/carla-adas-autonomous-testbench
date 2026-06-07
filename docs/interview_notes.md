@@ -63,3 +63,11 @@ The current project uses rule-based distance thresholds. It does not yet use cam
 ## Future Scope
 
 The next planned step is to add sensor-based perception using CARLA camera and LiDAR data, followed by automated report generation.
+
+---
+
+## Visual Evidence Recording
+
+To make the validation workflow more reviewable, I added a CARLA RGB camera recorder. The camera is attached behind the ego vehicle and records each scenario as an MP4 file.
+
+This gives visual proof of the vehicle behavior along with CSV telemetry. In an engineering review, the CSV log supports signal-level analysis, while the video helps confirm scenario behavior visually.

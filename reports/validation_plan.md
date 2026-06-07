@@ -92,3 +92,17 @@ The following evidence should be captured for portfolio presentation:
 - GitHub repository link
 - README explanation
 - architecture diagram
+- Scenario video recording from ego-vehicle camera
+- MP4 evidence for baseline drive, emergency braking, pedestrian crossing and wet braking
+
+---
+
+## 9. Video Evidence
+
+| Scenario                  | Video Output                           |
+|---------------------------|----------------------------------------|
+| Baseline Autonomous Drive | `videos/baseline_autonomous_drive.mp4` |
+| Emergency Braking         | `videos/emergency_brake_test.mp4`      |
+| Pedestrian Crossing       | `videos/pedestrian_crossing_test.mp4`  |
+| Wet Road Braking          | `videos/wet_braking_test.mp4`          |
+

@@ -96,27 +96,33 @@ carla-adas-autonomous-testbench
 │
 ├── videos
 │   ├── .gitkeep
+│   ├── baseline_autonomous_drive.mp4
 │   ├── emergency_brake_test.mp4
+│   ├── pedestrian_crossing_test.mp4
+│   ├── wet_braking_test.mp4
 │   └── frames
 │       └── .gitkeep
 │
 └── docs
     ├── project_architecture.md
     ├── development_timeline.md
-    └── interview_notes.md
+    └── interview_notes.md── interview_notes.md
 ```
 
 ---
 
 ## Scenario Video Evidence
 
-The emergency braking scenario includes ego-vehicle camera recording for visual validation evidence.
+The project includes ego-vehicle camera recording for all major validation scenarios.
 
-| Scenario          | Evidence                          |
-| ----------------- | --------------------------------- |
-| Emergency Braking | `videos/emergency_brake_test.mp4` |
+| Scenario                  | Video Evidence                         |
+|---------------------------|----------------------------------------|
+| Baseline Autonomous Drive | `videos/baseline_autonomous_drive.mp4` |
+| Emergency Braking         | `videos/emergency_brake_test.mp4`      |
+| Pedestrian Crossing       | `videos/pedestrian_crossing_test.mp4`  |
+| Wet Road Braking          | `videos/wet_braking_test.mp4`          |
 
-The video is captured using a CARLA RGB camera sensor attached behind the ego vehicle. This provides a real-time view of the scenario execution and supports post-test validation review.
+Each video is captured using a CARLA RGB camera sensor attached behind the ego vehicle. This provides visual validation evidence for scenario execution, vehicle response, braking behavior and post-test review.
 
 The raw frame cache is stored under `videos/frames/` during execution and is excluded from Git tracking to avoid committing large temporary image files.
 

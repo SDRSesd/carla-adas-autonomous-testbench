@@ -19,6 +19,8 @@ from utils_logger import (
     print_test_result
 )
 
+from video_recorder import CarlaVideoRecorder
+
 
 SCENARIO_NAME = "wet_braking_test"
 CARLA_HOST = "127.0.0.1"
@@ -50,6 +52,7 @@ def main():
     spawn_points = world.get_map().get_spawn_points()
 
     ego_vehicle = None
+    video_recorder = None
     logger = VehicleDataLogger(SCENARIO_NAME)
 
     try:
@@ -57,6 +60,14 @@ def main():
 
         ego_bp = blueprint_library.filter("vehicle.tesla.model3")[0]
         ego_vehicle = world.spawn_actor(ego_bp, spawn_points[0])
+
+        video_recorder = CarlaVideoRecorder(
+            world=world,
+            blueprint_library=blueprint_library,
+            ego_vehicle=ego_vehicle,
+            scenario_name=SCENARIO_NAME
+        )
+        video_recorder.start()
 
         print("[INFO] Wet weather applied")
         print("[INFO] Ego vehicle spawned")
@@ -128,6 +139,9 @@ def main():
 
     finally:
         print("[INFO] Cleaning up CARLA actors")
+
+        if video_recorder is not None:
+            video_recorder.stop()
 
         if ego_vehicle is not None:
             ego_vehicle.destroy()

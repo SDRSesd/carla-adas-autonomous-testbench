@@ -23,6 +23,7 @@ from utils_logger import (
     print_test_result
 )
 
+from video_recorder import CarlaVideoRecorder
 
 SCENARIO_NAME = "baseline_autonomous_drive"
 TEST_DURATION_SEC = 60
@@ -53,6 +54,7 @@ def main():
 
     ego_vehicle = None
     collision_sensor = None
+    video_recorder = None
     collision_detected = False
 
     logger = VehicleDataLogger(SCENARIO_NAME)
@@ -76,6 +78,14 @@ def main():
             attach_to=ego_vehicle
         )
         collision_sensor.listen(on_collision)
+
+        video_recorder = CarlaVideoRecorder(
+            world=world,
+            blueprint_library=blueprint_library,
+            ego_vehicle=ego_vehicle,
+            scenario_name=SCENARIO_NAME
+        )
+        video_recorder.start()
 
         print("[INFO] Ego vehicle spawned successfully")
         print("[INFO] Autopilot enabled")
@@ -134,6 +144,9 @@ def main():
 
     finally:
         print("[INFO] Cleaning up CARLA actors")
+
+        if video_recorder is not None:
+            video_recorder.stop()
 
         if collision_sensor is not None:
             collision_sensor.stop()

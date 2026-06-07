@@ -19,14 +19,14 @@ CARLA ADAS Autonomous Driving Validation Testbench
 
 ---
 
-## Test Summary
+##  Test Summary
 
-| Test ID | Scenario | Status | Evidence |
-|---|---|---|---|
-| TC_ADAS_001 | Baseline Autonomous Drive | Completed | CSV log + console output |
-| TC_ADAS_002 | Emergency Braking | Completed | CSV log + console output |
-| TC_ADAS_003 | Pedestrian Crossing | Completed | CSV log + console output |
-| TC_ADAS_004 | Wet Road Braking | Completed | CSV log + console output |
+| Test ID     | Scenario                  | Status    | CSV Evidence | Video Evidence |
+|-------------|---------------------------|-----------|--------------|----------------|
+| TC_ADAS_001 | Baseline Autonomous Drive | Completed | CSV log      | MP4 video      |
+| TC_ADAS_002 | Emergency Braking         | Completed | CSV log      | MP4 video      |
+| TC_ADAS_003 | Pedestrian Crossing       | Completed | CSV log      | MP4 video      |
+| TC_ADAS_004 | Wet Road Braking          | Completed | CSV log      | MP4 video      |
 
 ---
 
